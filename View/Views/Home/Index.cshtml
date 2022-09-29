@@ -1,12 +1,94 @@
 ﻿@{
-    ViewBag.Title = "Home Page";
+    ViewBag.Title = "Climas";
 }
 
-<div class="jumbotron">
-    <h1>ASP.NET</h1>
-    <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS and JavaScript.</p>
-    <p><a href="https://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
+
+<div class="row">
+
+
+    <div class="col-12 col-lg-6">
+        <div class="jumbotron">
+            <h3>
+                <i class="bi bi-sun"></i>
+                <span>Cidades mais questes hoje</span>
+            </h3>
+            <p class="lead">Confira a lista de cidades mais <i class="bi bi-sun-fill"></i> <strong>quentes</strong> no dia de <strong>hoje</strong>.</p>
+
+            <table class="table weather" id="cidades-mais-quentes">
+                <thead>
+                    <tr>
+                        <th scope="col"><i class="bi bi-geo-alt mr-2"></i>Cidade</th>
+                        <th class="th-weather-min" scope="col"><i class="bi bi-thermometer-low mr-2"></i>Mínima</th>
+                        <th class="th-weather-max" scope="col"><i class="bi bi-thermometer-high mr-2"></i>Máxima</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Cidade</td>
+                        <td class="td-weather-min">99 Cº</td>
+                        <td class="td-weather-max">99 Cº</td>
+                    </tr>
+                    <tr>
+                        <td>Cidade</td>
+                        <td class="td-weather-min">99 Cº</td>
+                        <td class="td-weather-max">99 Cº</td>
+                    </tr>
+                    <tr>
+                        <td>Cidade</td>
+                        <td class="td-weather-min">99 Cº</td>
+                        <td class="td-weather-max">99 Cº</td>
+                    </tr>
+                </tbody>
+            </table>
+
+
+        </div>
+    </div>
+
+
+    <div class="col-12 col-lg-6">
+
+        <div class="jumbotron">
+            <h3>
+                <i class="bi bi-snow"></i>
+                <span>Cidades mais frias hoje</span>
+            </h3>
+            <p class="lead">Confira a lista de cidades mais <i class="bi bi-snow2"></i> <strong>frias</strong> no dia de <strong>hoje</strong>.</p>
+
+            <table class="table weather" id="cidades-mais-frias">
+                <thead>
+                    <tr>
+                        <th scope="col"><i class="bi bi-geo-alt mr-2"></i>Cidade</th>
+                        <th class="th-weather-min" scope="col"><i class="bi bi-thermometer-low mr-2"></i>Mínima</th>
+                        <th class="th-weather-max" scope="col"><i class="bi bi-thermometer-high mr-2"></i>Máxima</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Cidade</td>
+                        <td class="td-weather-min">99 Cº</td>
+                        <td class="td-weather-max">99 Cº</td>
+                    </tr>
+                    <tr>
+                        <td>Cidade</td>
+                        <td class="td-weather-min">99 Cº</td>
+                        <td class="td-weather-max">99 Cº</td>
+                    </tr>
+                    <tr>
+                        <td>Cidade</td>
+                        <td class="td-weather-min">99 Cº</td>
+                        <td class="td-weather-max">99 Cº</td>
+                    </tr>
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+
 </div>
+
+
+
 
 <div class="row">
     <div class="col-md-4">
