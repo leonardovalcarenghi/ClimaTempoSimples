@@ -9,13 +9,13 @@
 }
 
 
-.table.weather .th-weather-min,
-.table.weather .th-weather-max {
+.table-weather .th-weather-min,
+.table-weather .th-weather-max {
     text-align: center;
 }
 
-.table.weather .td-weather-min,
-.table.weather .td-weather-max {
+.table-weather .td-weather-min,
+.table-weather .td-weather-max {
     text-align: center;
 }
 
