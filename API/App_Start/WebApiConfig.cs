@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web.Http;
+using System.Web.Http.Cors;
 
 namespace API
 {
@@ -9,9 +10,11 @@ namespace API
     {
         public static void Register(HttpConfiguration config)
         {
-            // Configuração e serviços de API Web
+            // Serviços e configuração da API da Web
+            var cors = new EnableCorsAttribute("*", "*", "*");
+            config.EnableCors(cors);
 
-            // Rotas de API Web
+            // Rotas da API da Web
             config.MapHttpAttributeRoutes();
 
             config.Routes.MapHttpRoute(

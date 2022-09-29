@@ -10,7 +10,7 @@
         <div class="jumbotron">
             <h3>
                 <i class="bi bi-sun"></i>
-                <span>Cidades mais questes hoje</span>
+                <span>Cidades mais quentes hoje</span>
             </h3>
             <p class="lead">Confira a lista de cidades mais <i class="bi bi-sun-fill"></i> <strong>quentes</strong> no dia de <strong>hoje</strong>.</p>
 
@@ -103,7 +103,7 @@
     </div>
 </div>
 
-<div class="row">
+<div class="row" id="climates-container">
 
     <div class="col-6 col-md-4 col-xl-2 mb-3">
 
@@ -131,160 +131,54 @@
     </div>
 
 
-        <div class="col-6 col-md-4 col-xl-2 mb-3">
-
-        <div class="card card-weather">
-            <div class="card-header">
-                <h6 class="mb-0">Dia da Semana</h6>
-            </div>
-            <div class="card-body">
-                <h4>
-                    <i class="bi bi-cloud-drizzle-fill"></i>
-                    <span>Clima</span>
-                </h4>
-                <div class="d-flex justify-content-between mb-0">
-                    <span>Mínima</span>
-                    <span>99 Cº</span>
-                </div>
-                <div class="d-flex justify-content-between mb-0">
-                    <span>Máxima</span>
-                    <span>99 Cº</span>
-                </div>
-            </div>
-
-        </div>
-
-    </div>
 
 
-        <div class="col-6 col-md-4 col-xl-2 mb-3">
-
-        <div class="card card-weather">
-            <div class="card-header">
-                <h6 class="mb-0">Dia da Semana</h6>
-            </div>
-            <div class="card-body">
-                <h4>
-                    <i class="bi bi-cloud-drizzle-fill"></i>
-                    <span>Clima</span>
-                </h4>
-                <div class="d-flex justify-content-between mb-0">
-                    <span>Mínima</span>
-                    <span>99 Cº</span>
-                </div>
-                <div class="d-flex justify-content-between mb-0">
-                    <span>Máxima</span>
-                    <span>99 Cº</span>
-                </div>
-            </div>
-
-        </div>
-
-    </div>
-
-
-        <div class="col-6 col-md-4 col-xl-2 mb-3">
-
-        <div class="card card-weather">
-            <div class="card-header">
-                <h6 class="mb-0">Dia da Semana</h6>
-            </div>
-            <div class="card-body">
-                <h4>
-                    <i class="bi bi-cloud-drizzle-fill"></i>
-                    <span>Clima</span>
-                </h4>
-                <div class="d-flex justify-content-between mb-0">
-                    <span>Mínima</span>
-                    <span>99 Cº</span>
-                </div>
-                <div class="d-flex justify-content-between mb-0">
-                    <span>Máxima</span>
-                    <span>99 Cº</span>
-                </div>
-            </div>
-
-        </div>
-
-    </div>
-
-
-        <div class="col-6 col-md-4 col-xl-2 mb-3">
-
-        <div class="card card-weather">
-            <div class="card-header">
-                <h6 class="mb-0">Dia da Semana</h6>
-            </div>
-            <div class="card-body">
-                <h4>
-                    <i class="bi bi-cloud-drizzle-fill"></i>
-                    <span>Clima</span>
-                </h4>
-                <div class="d-flex justify-content-between mb-0">
-                    <span>Mínima</span>
-                    <span>99 Cº</span>
-                </div>
-                <div class="d-flex justify-content-between mb-0">
-                    <span>Máxima</span>
-                    <span>99 Cº</span>
-                </div>
-            </div>
-
-        </div>
-
-    </div>
-
-
-        <div class="col-6 col-md-4 col-xl-2 mb-3">
-
-        <div class="card card-weather">
-            <div class="card-header">
-                <h6 class="mb-0">Dia da Semana</h6>
-            </div>
-            <div class="card-body">
-                <h4>
-                    <i class="bi bi-cloud-drizzle-fill"></i>
-                    <span>Clima</span>
-                </h4>
-                <div class="d-flex justify-content-between mb-0">
-                    <span>Mínima</span>
-                    <span>99 Cº</span>
-                </div>
-                <div class="d-flex justify-content-between mb-0">
-                    <span>Máxima</span>
-                    <span>99 Cº</span>
-                </div>
-            </div>
-
-        </div>
-
-    </div>
-
-
-        <div class="col-6 col-md-4 col-xl-2 mb-3">
-
-        <div class="card card-weather">
-            <div class="card-header">
-                <h6 class="mb-0">Dia da Semana</h6>
-            </div>
-            <div class="card-body">
-                <h4>
-                    <i class="bi bi-cloud-drizzle-fill"></i>
-                    <span>Clima</span>
-                </h4>
-                <div class="d-flex justify-content-between mb-0">
-                    <span>Mínima</span>
-                    <span>99 Cº</span>
-                </div>
-                <div class="d-flex justify-content-between mb-0">
-                    <span>Máxima</span>
-                    <span>99 Cº</span>
-                </div>
-            </div>
-
-        </div>
-
-    </div>
+    
 
 
 </div>
+
+
+<!-- Componentes -->
+<div style="display: none">
+
+
+    <div class="col-6 col-md-4 col-xl-2 mb-3" id="card-weather-component">
+
+        <div class="card card-weather">
+            <div class="card-header">
+                <h6 class="mb-0">Dia da Semana</h6>
+            </div>
+            <div class="card-body">
+                <h4>
+                    <i class="bi bi-cloud-drizzle-fill"></i>
+                    <span>Clima</span>
+                </h4>
+                <div class="d-flex justify-content-between mb-0">
+                    <span>Mínima</span>
+                    <span>99 Cº</span>
+                </div>
+                <div class="d-flex justify-content-between mb-0">
+                    <span>Máxima</span>
+                    <span>99 Cº</span>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+    <table class="table table-weather" id="cidades-mais-quentes">     
+        <tbody>
+            <tr id="table-weather-tr-component">
+                <td>Cidade</td>
+                <td class="td-weather-min">99 Cº</td>
+                <td class="td-weather-max">99 Cº</td>
+            </tr>           
+        </tbody>
+    </table>
+
+</div>
+
+
+@Scripts.Render("~/Content/js/clima.js")

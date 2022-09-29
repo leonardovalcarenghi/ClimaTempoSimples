@@ -8,8 +8,8 @@ using System.Web.Http;
 
 namespace API.Controllers
 {
-    [RoutePrefix("cidades")]
-    public class CidadesController : DefaultController
+    [Route("cidades")]
+    public class CidadesController : ApiController
     {
 
         private readonly Cidades _cidades;
@@ -23,7 +23,12 @@ namespace API.Controllers
         public HttpResponseMessage Obter()
         {
             var result = _cidades.Obter();
-            return Ok(result);
+            return Request.CreateResponse(HttpStatusCode.OK, new
+            {
+                Error = false,
+                Result = result,
+                Date = DateTime.Now
+            });
         }
 
     }

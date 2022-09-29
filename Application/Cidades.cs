@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ClimaTempoSimples.DTO;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -13,9 +14,23 @@ namespace ClimaTempoSimples.Application
         /// Obter lista de cidades.
         /// </summary>
         /// <returns></returns>
-        public List<object> Obter()
+        public List<CidadeDTO> Obter()
         {
-            throw new NotImplementedException();
+            List<CidadeDTO> list = new List<CidadeDTO>();
+
+            list.Add(new CidadeDTO { Id = 1, EstadoId = 1, Nome = "Porto Alegre" });
+            list.Add(new CidadeDTO { Id = 2, EstadoId = 1, Nome = "Gramado" });
+            list.Add(new CidadeDTO { Id = 3, EstadoId = 1, Nome = "Caxias do Sul" });
+
+            list.Add(new CidadeDTO { Id = 4, EstadoId = 2, Nome = "São Paulo (Capital)" });
+            list.Add(new CidadeDTO { Id = 5, EstadoId = 2, Nome = "São Bernardo do campo" });
+            list.Add(new CidadeDTO { Id = 6, EstadoId = 2, Nome = "Guarulhos" });
+
+            list.Add(new CidadeDTO { Id = 7, EstadoId = 2, Nome = "Rio de Janeiro (Capital)" });
+            list.Add(new CidadeDTO { Id = 8, EstadoId = 2, Nome = "Niterói" });
+            list.Add(new CidadeDTO { Id = 9, EstadoId = 2, Nome = "Petrópolis" });
+
+            return list;
         }
 
     }
