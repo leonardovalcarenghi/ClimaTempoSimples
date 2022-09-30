@@ -8,6 +8,14 @@
 
     <div class="col-12 col-lg-6">
         <div class="jumbotron">
+
+            <div class="loading-overlay" id="loading-mais-quentes">
+                <p>Carregando...</p>
+            </div>
+            <div class="error-overlay" id="error-mais-quentes" style="display: none;">
+                <p>Ocorreu um erro...</p>
+            </div>
+
             <h3>
                 <i class="bi bi-sun"></i>
                 <span>Cidades mais quentes hoje</span>
@@ -49,6 +57,15 @@
     <div class="col-12 col-lg-6">
 
         <div class="jumbotron">
+
+            <div class="loading-overlay" id="loading-mais-frias">
+                <p>Carregando...</p>
+            </div>
+
+            <div class="error-overlay" id="error-mais-quentes" style="display: none;">
+                <p>Ocorreu um erro...</p>
+            </div>
+
             <h3>
                 <i class="bi bi-snow"></i>
                 <span>Cidades mais frias hoje</span>
@@ -133,7 +150,7 @@
 
 
 
-    
+
 
 
 </div>
@@ -167,16 +184,6 @@
         </div>
 
     </div>
-
-    <table class="table table-weather" id="cidades-mais-quentes">     
-        <tbody>
-            <tr id="table-weather-tr-component">
-                <td>Cidade</td>
-                <td class="td-weather-min">99 Cº</td>
-                <td class="td-weather-max">99 Cº</td>
-            </tr>           
-        </tbody>
-    </table>
 
 </div>
 

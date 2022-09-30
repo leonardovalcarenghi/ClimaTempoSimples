@@ -2,24 +2,34 @@
 var LocalPort = document.getElementById('localhost-port');
 var Port = LocalPort.value;
 
-// Componentes:
-var CardWeatherComponent = document.getElementById('card-weather-component');
-var TableWeatherTRComponent = document.getElementById('table-weather-tr-component');
 
-// Tabelas:
-var cidadesMaisQuentesTable = document.getElementById('cidades-mais-quentes');
-var cidadesMaisFriasTable = document.getElementById('cidades-mais-frias');
+// Listas:
+var Cidades = [];
+var CidadesMaisQuentes = [];
+var CidadesMaisFrias = [];
+
+// Componentes:
+var ListaDeCidades = document.getElementById('cidades-select');
+var CardWeatherComponent = document.getElementById('card-weather-component');
 
 // Cidade
 var cidadeNome = document.getElementById('cidade-nome');
-var CitysSelect = document.getElementById('cidades-select');
+
 
 // Container:
-var climatesContainer = document.getElementById('climates-container');
+var PainelDePrevisoes = document.getElementById('climates-container');
 
-// Listas:
-var Citys = [];
 
+// Cidades Mais Quentes:
+var Tabela_CidadesMaisQuentes = document.getElementById('cidades-mais-quentes');
+var Loading_MaisQuentes = document.getElementById('loading-mais-quentes');
+var Error_MaisQuentes = document.getElementById('error-mais-quentes');
+
+
+// Cidades Mais Frias:
+var Tabela_CidadesMaisFrias = document.getElementById('cidades-mais-frias');
+var Loading_MaisFrias = document.getElementById('loading-mais-frias');
+var Error_MaisFrias = document.getElementById('error-mais-frias');
 
 window.addEventListener('DOMContentLoaded', async (e) => {
 
@@ -32,11 +42,11 @@ window.addEventListener('DOMContentLoaded', async (e) => {
 
 async function ObterCidades() {
 
-    CitysSelect.innerHTML = '<option selected desabled>Carregando...</option>';
+    ListaDeCidades.innerHTML = '<option selected desabled>Carregando...</option>';
 
     try {
         const response = await Request('GET', `https://localhost:${Port}/cidades`);
-        Citys = Array.isArray(response.Result) ? response.Result : [];
+        Cidades = Array.isArray(response.Result) ? response.Result : [];
         await RenderizarListaDeCidades();
     }
     catch (e) {
@@ -49,20 +59,20 @@ async function ObterCidades() {
 function RenderizarListaDeCidades() {
     return new Promise((resolve) => {
 
-        CitysSelect.innerHTML = '';
+        ListaDeCidades.innerHTML = '';
 
         const emptyOption = document.createElement('option');
         emptyOption.value = -1;
         emptyOption.setAttribute('selected', 'selected');
         emptyOption.setAttribute('disabled', 'disabled');
         emptyOption.innerHTML = 'Selecionar Cidade...';
-        CitysSelect.appendChild(emptyOption);
+        ListaDeCidades.appendChild(emptyOption);
 
-        Citys.forEach(city => {
+        Cidades.forEach(city => {
             const option = document.createElement('option');
             option.value = city.Id;
             option.innerHTML = city.Nome;
-            CitysSelect.appendChild(option);
+            ListaDeCidades.appendChild(option);
         });
 
         resolve();
@@ -72,21 +82,65 @@ function RenderizarListaDeCidades() {
 
 
 async function ObterCidadesMaisQuentes() {
-    return new Promise(async (resolve, reject) => {
+    try {
+        Loading_MaisQuentes.style.display = 'block';
+        const response = await Request('GET', `https://localhost:${Port}/climas/mais-quentes`);
+        CidadesMaisQuentes = Array.isArray(response.Result) ? response.Result : [];
+        await RenderizarCidadesExtremas(CidadesMaisQuentes, Tabela_CidadesMaisQuentes);
+        Loading_MaisQuentes.style.display = 'none';
+    }
+    catch (e) {
 
-    });
+        Loading_MaisQuentes.style.display = 'none';
+        Error_MaisQuentes.style.display = 'flex';
+
+    }
 }
 
 
 async function ObterCidadesMaisFrias() {
-    return new Promise(async (resolve, reject) => {
-
-    });
+    try {
+        Loading_MaisFrias.style.display = 'block';
+        const response = await Request('GET', `https://localhost:${Port}/climas/mais-frias`);
+        CidadesMaisFrias = Array.isArray(response.Result) ? response.Result : [];
+        await RenderizarCidadesExtremas(CidadesMaisFrias, Tabela_CidadesMaisFrias);
+        Loading_MaisFrias.style.display = 'none';
+    }
+    catch (e) {
+        Loading_MaisFrias.style.display = 'none';
+        Error_MaisFrias.style.display = 'flex';
+    }
 }
 
 
 async function RenderizarCidadesExtremas(list = [], table = HTMLElement) {
-    return new Promise(async (resolve, reject) => {
+    return new Promise(async (resolve) => {
+
+        table.querySelector('tbody').innerHTML = '';
+
+        list.forEach(city => {
+
+            const tr = document.createElement('tr');
+
+            const td1 = document.createElement('td');
+            td1.innerHTML = city.Nome;
+            tr.appendChild(td1);
+
+            const td2 = document.createElement('td');
+            td2.setAttribute('class', 'td-weather-min');
+            td2.innerHTML = `${city.TemperaturaMinima}ºC`;
+            tr.appendChild(td2);
+
+            const td3 = document.createElement('td');
+            td3.setAttribute('class', 'td-weather-max');
+            td3.innerHTML = `${city.TemperaturaMaxima}ºC`;
+            tr.appendChild(td3);
+
+            table.querySelector('tbody').appendChild(tr);
+
+        });
+
+        resolve();
 
     });
 }
@@ -109,8 +163,8 @@ async function RenderizarPrevisao(list = []) {
 }
 
 
-CitysSelect.onchange = function () {
-    const id = CitysSelect.value;
+ListaDeCidades.onchange = function () {
+    const id = ListaDeCidades.value;
     ObterPrevisao(id);
 }
 

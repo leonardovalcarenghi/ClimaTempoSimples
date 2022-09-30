@@ -9,7 +9,7 @@ using System.Web.Http;
 namespace API.Controllers
 {
     [RoutePrefix("climas")]
-    public class ClimasController : DefaultController
+    public class ClimasController : ApiController
     {
 
         private readonly Climas _climas;
@@ -20,11 +20,16 @@ namespace API.Controllers
 
 
         [HttpGet]
-        [Route("mais-quente")]
+        [Route("mais-quentes")]
         public HttpResponseMessage ObterMaisQuentes(int total = 3)
         {
             var result = _climas.ObterMaisQuentes(total);
-            return Ok(result);
+            return Request.CreateResponse(HttpStatusCode.OK, new
+            {
+                Error = false,
+                Result = result,
+                Date = DateTime.Now
+            });
         }
 
         [HttpGet]
@@ -32,7 +37,12 @@ namespace API.Controllers
         public HttpResponseMessage ObterMaisFrias(int total = 3)
         {
             var result = _climas.ObterMaisFrias(total);
-            return Ok(result);
+            return Request.CreateResponse(HttpStatusCode.OK, new
+            {
+                Error = false,
+                Result = result,
+                Date = DateTime.Now
+            });
         }
 
 

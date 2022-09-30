@@ -19,3 +19,40 @@
     text-align: center;
 }
 
+.jumbotron {
+    position: relative;
+}
+
+.loading-overlay {
+    position: absolute;
+    width: 100%;
+    left: 0px;
+    top: 0px;
+    height: 100%;
+    background: rgba(0,0,0, 0.1);
+    backdrop-filter: blur(5px);
+    border: inherit;
+    border-radius: inherit;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+}
+
+.error-overlay {
+    position: absolute;
+    width: 100%;
+    left: 0px;
+    top: 0px;
+    height: 100%;
+    background: rgba(0,0,0, 0.1);
+    backdrop-filter: blur(5px);
+    border: inherit;
+    border-radius: inherit;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+}
