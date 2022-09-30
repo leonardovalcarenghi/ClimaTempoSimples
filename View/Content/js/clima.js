@@ -4,6 +4,7 @@ var Port = LocalPort.value;
 
 
 // Listas:
+var Estados = [];
 var Cidades = [];
 var CidadesMaisQuentes = [];
 var CidadesMaisFrias = [];
@@ -33,12 +34,27 @@ var Error_MaisFrias = document.getElementById('error-mais-frias');
 
 window.addEventListener('DOMContentLoaded', async (e) => {
 
+    await ObterEstados();
     await ObterCidades();
     ObterCidadesMaisQuentes();
     ObterCidadesMaisFrias();
 
 });
 
+
+async function ObterEstados() {
+
+    ListaDeCidades.innerHTML = '<option selected desabled>Carregando...</option>';
+
+    try {
+        const response = await Request('GET', `https://localhost:${Port}/estados`);
+        Estados = Array.isArray(response.Result) ? response.Result : [];
+    }
+    catch (e) {
+
+    }
+
+}
 
 async function ObterCidades() {
 
@@ -68,12 +84,27 @@ function RenderizarListaDeCidades() {
         emptyOption.innerHTML = 'Selecionar Cidade...';
         ListaDeCidades.appendChild(emptyOption);
 
-        Cidades.forEach(city => {
-            const option = document.createElement('option');
-            option.value = city.Id;
-            option.innerHTML = city.Nome;
-            ListaDeCidades.appendChild(option);
+
+        Estados.forEach(estado => {
+            console.log('estado', estado);
+            const optgroup = document.createElement('optgroup');
+            optgroup.innerHTML = estado.Nome;
+            optgroup.setAttribute('label', estado.Nome);
+            ListaDeCidades.appendChild(optgroup);
+
+            const cidades = Cidades.filter(cidade => cidade.EstadoId == estado.Id);
+            console.log('cidades', cidades);
+
+            cidades.forEach(cidade => {
+                const option = document.createElement('option');
+                option.value = cidade.Id;
+                option.innerHTML = cidade.Nome;
+                ListaDeCidades.appendChild(option);
+            });
+
         });
+
+
 
         resolve();
 

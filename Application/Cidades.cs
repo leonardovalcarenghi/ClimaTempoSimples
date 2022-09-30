@@ -26,9 +26,9 @@ namespace ClimaTempoSimples.Application
             list.Add(new CidadeDTO { Id = 5, EstadoId = 2, Nome = "São Bernardo do campo" });
             list.Add(new CidadeDTO { Id = 6, EstadoId = 2, Nome = "Guarulhos" });
 
-            list.Add(new CidadeDTO { Id = 7, EstadoId = 2, Nome = "Rio de Janeiro (Capital)" });
-            list.Add(new CidadeDTO { Id = 8, EstadoId = 2, Nome = "Niterói" });
-            list.Add(new CidadeDTO { Id = 9, EstadoId = 2, Nome = "Petrópolis" });
+            list.Add(new CidadeDTO { Id = 7, EstadoId = 3, Nome = "Rio de Janeiro (Capital)" });
+            list.Add(new CidadeDTO { Id = 8, EstadoId = 3, Nome = "Niterói" });
+            list.Add(new CidadeDTO { Id = 9, EstadoId = 3, Nome = "Petrópolis" });
 
             return list;
         }

@@ -151,6 +151,7 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\CidadesController.cs" />
     <Compile Include="Controllers\ClimasController.cs" />
+    <Compile Include="Controllers\EstadosController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>

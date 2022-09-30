@@ -7,7 +7,7 @@
 
 
     <div class="col-12 col-lg-6">
-        <div class="jumbotron">
+        <div class="jumbotron text-white" id="weather-hot">
 
             <div class="loading-overlay" id="loading-mais-quentes">
                 <p>Carregando...</p>
@@ -16,13 +16,15 @@
                 <p>Ocorreu um erro...</p>
             </div>
 
+
+            <i class="bi bi-sun weather-icon"></i>
+
             <h3>
-                <i class="bi bi-sun"></i>
                 <span>Cidades mais quentes hoje</span>
             </h3>
             <p class="lead">Confira a lista de cidades mais <i class="bi bi-sun-fill"></i> <strong>quentes</strong> no dia de <strong>hoje</strong>.</p>
 
-            <table class="table table-weather" id="cidades-mais-quentes">
+            <table class="table table-weather text-white" id="cidades-mais-quentes">
                 <thead>
                     <tr>
                         <th scope="col"><i class="bi bi-geo-alt mr-2"></i>Cidade</th>
@@ -56,7 +58,7 @@
 
     <div class="col-12 col-lg-6">
 
-        <div class="jumbotron">
+        <div class="jumbotron text-white" id="weather-cold">
 
             <div class="loading-overlay" id="loading-mais-frias">
                 <p>Carregando...</p>
@@ -66,13 +68,14 @@
                 <p>Ocorreu um erro...</p>
             </div>
 
+            <i class="bi bi-snow weather-icon"></i>
+
             <h3>
-                <i class="bi bi-snow"></i>
                 <span>Cidades mais frias hoje</span>
             </h3>
             <p class="lead">Confira a lista de cidades mais <i class="bi bi-snow2"></i> <strong>frias</strong> no dia de <strong>hoje</strong>.</p>
 
-            <table class="table table-weather" id="cidades-mais-frias">
+            <table class="table table-weather text-white" id="cidades-mais-frias">
                 <thead>
                     <tr>
                         <th scope="col"><i class="bi bi-geo-alt mr-2"></i>Cidade</th>
@@ -111,12 +114,24 @@
         </h2>
     </div>
     <div class="col-12 col-lg-4">
-        <select class="form-control" id="cidades-select">
-            <option>Cidade</option>
-            <option>Cidade</option>
-            <option>Cidade</option>
-            <option>Cidade</option>
-        </select>
+
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <span class="input-group-text" id="basic-addon1">
+                    <i class="bi bi-geo-alt-fill"></i>
+                </span>
+            </div>
+            <select class="form-control" id="cidades-select">
+               <optgroup label="teste">teste</optgroup>
+                <option>Cidade</option>
+                <option>Cidade</option>
+                <option>Cidade</option>
+                <option>Cidade</option>
+            </select>
+        </div>
+
+
+
     </div>
 </div>
 

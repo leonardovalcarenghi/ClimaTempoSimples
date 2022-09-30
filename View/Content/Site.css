@@ -56,3 +56,21 @@
     justify-content: center;
     align-items: center;
 }
+
+#weather-hot {
+    background: rgb(220,53,69);
+    background: linear-gradient(128deg, rgba(220,53,69,1) 21%, rgba(220,53,69,1) 47%, rgba(220,53,103,0.9374124649859944) 100%);
+}
+
+#weather-cold {
+    background: rgb(0,123,255);
+    background: linear-gradient(128deg, rgba(0,123,255,1) 21%, rgba(0,123,255,1) 47%, rgba(0,191,255,0.758140756302521) 100%);
+}
+
+
+.weather-icon {
+    position: absolute;
+    right: 40px;
+    top: 15px;
+    font-size: 48px;
+}
