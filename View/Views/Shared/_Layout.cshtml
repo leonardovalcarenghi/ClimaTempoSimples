@@ -4,7 +4,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - Meu Aplicativo ASP.NET</title>
+    <title>@ViewBag.Title - Clima Tempo Simples</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
 </head>
@@ -20,16 +20,17 @@
 
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ml-auto">
-                <li class="nav-item px-3 active">
-                    <a class="nav-link" href="#">
+                <li class="nav-item px-3">
+                    <a class="nav-link" href="/">
                         <i class="bi bi-thermometer-sun mr-1"></i>
                         Clima
                     </a>
                 </li>
                 <li class="nav-item px-3">
-                    <a class="nav-link" href="#">
+                    <a class="nav-link" href="/Home/About">
                         <i class="bi bi-info-circle mr-1"></i>
                         Sobre
+                        @*@Html.ActionLink("Sobre", "About", "Home")*@
                     </a>
                 </li>
             </ul>

@@ -9,6 +9,12 @@ namespace ClimaTempoSimples.Application
 {
     public class Cidades
     {
+        private readonly Infraestructure.Repository.Cidades _repository;
+
+        public Cidades()
+        {
+            _repository = new Infraestructure.Repository.Cidades();
+        }
 
         /// <summary>
         /// Obter lista de cidades.
@@ -16,20 +22,7 @@ namespace ClimaTempoSimples.Application
         /// <returns></returns>
         public List<CidadeDTO> Obter()
         {
-            List<CidadeDTO> list = new List<CidadeDTO>();
-
-            list.Add(new CidadeDTO { Id = 1, EstadoId = 1, Nome = "Porto Alegre" });
-            list.Add(new CidadeDTO { Id = 2, EstadoId = 1, Nome = "Gramado" });
-            list.Add(new CidadeDTO { Id = 3, EstadoId = 1, Nome = "Caxias do Sul" });
-
-            list.Add(new CidadeDTO { Id = 4, EstadoId = 2, Nome = "São Paulo (Capital)" });
-            list.Add(new CidadeDTO { Id = 5, EstadoId = 2, Nome = "São Bernardo do campo" });
-            list.Add(new CidadeDTO { Id = 6, EstadoId = 2, Nome = "Guarulhos" });
-
-            list.Add(new CidadeDTO { Id = 7, EstadoId = 3, Nome = "Rio de Janeiro (Capital)" });
-            list.Add(new CidadeDTO { Id = 8, EstadoId = 3, Nome = "Niterói" });
-            list.Add(new CidadeDTO { Id = 9, EstadoId = 3, Nome = "Petrópolis" });
-
+            List<CidadeDTO> list = _repository.Obter();
             return list;
         }
 
