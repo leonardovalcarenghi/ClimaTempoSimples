@@ -52,8 +52,8 @@ async function ObterEstados() {
         const response = await Request('GET', `https://localhost:${Port}/estados`);
         Estados = Array.isArray(response.Result) ? response.Result : [];
     }
-    catch (e) {
-
+    catch (error) {
+        console.error('ERRO AO BUSCAR ESTADOS', error);
     }
 
 }
@@ -67,8 +67,8 @@ async function ObterCidades() {
         Cidades = Array.isArray(response.Result) ? response.Result : [];
         await RenderizarListaDeCidades();
     }
-    catch (e) {
-
+    catch (error) {
+        console.error('ERRO AO BUSCAR CIDADES', error);
     }
 
 }
@@ -88,15 +88,12 @@ function RenderizarListaDeCidades() {
 
 
         Estados.forEach(estado => {
-            console.log('estado', estado);
             const optgroup = document.createElement('optgroup');
             optgroup.innerHTML = estado.Nome;
             optgroup.setAttribute('label', estado.Nome);
             ListaDeCidades.appendChild(optgroup);
 
             const cidades = Cidades.filter(cidade => cidade.EstadoId == estado.Id);
-            console.log('cidades', cidades);
-
             cidades.forEach(cidade => {
                 const option = document.createElement('option');
                 option.value = cidade.Id;
@@ -122,8 +119,8 @@ async function ObterCidadesMaisQuentes() {
         await RenderizarCidadesExtremas(CidadesMaisQuentes, Tabela_CidadesMaisQuentes);
         Loading_MaisQuentes.style.display = 'none';
     }
-    catch (e) {
-
+    catch (error) {
+        console.error('ERRO AO BUSCAR CIDADES MAIS QUENTES', error);
         Loading_MaisQuentes.style.display = 'none';
         Error_MaisQuentes.style.display = 'flex';
 
@@ -139,7 +136,8 @@ async function ObterCidadesMaisFrias() {
         await RenderizarCidadesExtremas(CidadesMaisFrias, Tabela_CidadesMaisFrias);
         Loading_MaisFrias.style.display = 'none';
     }
-    catch (e) {
+    catch (error) {
+        console.error('ERRO AO BUSCAR CIDADES MAIS FRIAS', error);
         Loading_MaisFrias.style.display = 'none';
         Error_MaisFrias.style.display = 'flex';
     }
@@ -183,9 +181,16 @@ async function RenderizarCidadesExtremas(list = [], table = HTMLElement) {
 
 
 async function ObterPrevisao(cidadeId) {
-    return new Promise(async (resolve, reject) => {
 
-    });
+    try {
+        const response = await Request('GET', `https://localhost:${Port}/previsao?cidade=${cidadeId}`);
+        const list = Array.isArray(response.Result) ? response.Result : [];
+        RenderizarPrevisao(list);
+    }
+    catch (error) {
+        console.error('ERRO AO BUSCAR PREVISAO PARA A CIDADE SELECIONADA', error);
+    }
+
 }
 
 
