@@ -14,6 +14,7 @@ var ListaDeCidades = document.getElementById('cidades-select');
 var CardWeatherComponent = document.getElementById('card-weather-component');
 
 // Cidade
+var tituloPrevisao = document.getElementById('titulo-previsao');
 var cidadeNome = document.getElementById('cidade-nome');
 
 
@@ -36,6 +37,7 @@ window.addEventListener('DOMContentLoaded', async (e) => {
 
     await ObterEstados();
     await ObterCidades();
+
     ObterCidadesMaisQuentes();
     ObterCidadesMaisFrias();
 

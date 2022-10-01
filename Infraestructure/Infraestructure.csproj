@@ -60,6 +60,7 @@
     </Compile>
     <Compile Include="Repository\Cidades.cs" />
     <Compile Include="Repository\InsertDefault.cs" />
+    <Compile Include="Repository\Previsao.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DTO\DTO.csproj">

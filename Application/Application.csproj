@@ -45,6 +45,7 @@
     <Compile Include="Climas.cs" />
     <Compile Include="Estados.cs" />
     <Compile Include="InsertDefault.cs" />
+    <Compile Include="Previsao.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
