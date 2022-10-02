@@ -113,7 +113,7 @@ function RenderizarListaDeCidades() {
 
 async function ObterCidadesMaisQuentes() {
     try {
-        Loading_MaisQuentes.style.display = 'block';
+        Loading_MaisQuentes.style.display = 'flex';
         const response = await Request('GET', `https://localhost:${Port}/climas/mais-quentes`);
         CidadesMaisQuentes = Array.isArray(response.Result) ? response.Result : [];
         await RenderizarCidadesExtremas(CidadesMaisQuentes, Tabela_CidadesMaisQuentes);
@@ -130,7 +130,7 @@ async function ObterCidadesMaisQuentes() {
 
 async function ObterCidadesMaisFrias() {
     try {
-        Loading_MaisFrias.style.display = 'block';
+        Loading_MaisFrias.style.display = 'flex';
         const response = await Request('GET', `https://localhost:${Port}/climas/mais-frias`);
         CidadesMaisFrias = Array.isArray(response.Result) ? response.Result : [];
         await RenderizarCidadesExtremas(CidadesMaisFrias, Tabela_CidadesMaisFrias);
@@ -149,22 +149,22 @@ async function RenderizarCidadesExtremas(list = [], table = HTMLElement) {
 
         table.querySelector('tbody').innerHTML = '';
 
-        list.forEach(city => {
+        list.forEach(clima => {
 
             const tr = document.createElement('tr');
 
             const td1 = document.createElement('td');
-            td1.innerHTML = city.Nome;
+            td1.innerHTML = `${clima.Cidade}/${clima.UF}`;
             tr.appendChild(td1);
 
             const td2 = document.createElement('td');
             td2.setAttribute('class', 'td-weather-min');
-            td2.innerHTML = `${city.TemperaturaMinima}ºC`;
+            td2.innerHTML = `${clima.TemperaturaMinima}ºC`;
             tr.appendChild(td2);
 
             const td3 = document.createElement('td');
             td3.setAttribute('class', 'td-weather-max');
-            td3.innerHTML = `${city.TemperaturaMaxima}ºC`;
+            td3.innerHTML = `${clima.TemperaturaMaxima}ºC`;
             tr.appendChild(td3);
 
             table.querySelector('tbody').appendChild(tr);

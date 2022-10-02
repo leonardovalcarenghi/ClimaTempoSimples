@@ -6,8 +6,11 @@ using System.Threading.Tasks;
 
 namespace ClimaTempoSimples.DTO
 {
-    public class ClimaDTO : CidadeDTO
+    public class ClimaDTO
     {
+        public int Id { get; set; }
+        public string Cidade { get; set; }
+        public string UF { get; set; }
         public DateTime DataPrevisao { get; set; }
         public string Clima { get; set; }
         public double TemperaturaMinima { get; set; }

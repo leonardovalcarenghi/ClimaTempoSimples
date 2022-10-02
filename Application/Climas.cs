@@ -9,6 +9,11 @@ namespace ClimaTempoSimples.Application
 {
     public class Climas
     {
+        private readonly Infraestructure.Repository.Climas _repository;
+        public Climas()
+        {
+            _repository = new Infraestructure.Repository.Climas();
+        }
 
         /// <summary>
         /// Obter lista de cidades mais quentes.
@@ -17,29 +22,7 @@ namespace ClimaTempoSimples.Application
         /// <returns></returns>
         public List<ClimaDTO> ObterMaisQuentes(int total = 3)
         {
-            List<ClimaDTO> list = new List<ClimaDTO>();
-            list.Add(new ClimaDTO
-            {
-                Id = 1,
-                EstadoId = 1,
-                Nome = "Porto Alegre",
-                Clima = "Ensolarado",
-                DataPrevisao = DateTime.Now,
-                TemperaturaMaxima = 36.8,
-                TemperaturaMinima = 22.8
-            });
-
-            list.Add(new ClimaDTO
-            {
-                Id = 2,
-                EstadoId = 1,
-                Nome = "Gramado",
-                Clima = "Ensolarado",
-                DataPrevisao = DateTime.Now,
-                TemperaturaMaxima = 32.1,
-                TemperaturaMinima = 24.8
-            });
-
+            List<ClimaDTO> list = _repository.ObterMaisQuentes(total);      
             return list;
         }
 
@@ -51,29 +34,7 @@ namespace ClimaTempoSimples.Application
         /// <returns></returns>
         public List<ClimaDTO> ObterMaisFrias(int total = 3)
         {
-            List<ClimaDTO> list = new List<ClimaDTO>();
-            list.Add(new ClimaDTO
-            {
-                Id = 1,
-                EstadoId = 2,
-                Nome = "São Paulo (Capital)",
-                Clima = "Chuvoso",
-                DataPrevisao = DateTime.Now,
-                TemperaturaMaxima = 18.7,
-                TemperaturaMinima = 12.9
-            });
-
-            list.Add(new ClimaDTO
-            {
-                Id = 7,
-                EstadoId = 3,
-                Nome = "Rio de Janeiro (Capital)",
-                Clima = "Ensolarado",
-                DataPrevisao = DateTime.Now,
-                TemperaturaMaxima = 14.9,
-                TemperaturaMinima = 08.2
-            });
-
+            List<ClimaDTO> list = _repository.ObterMaisFrias(total);
             return list;
         }
 

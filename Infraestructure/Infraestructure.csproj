@@ -53,12 +53,18 @@
   <ItemGroup>
     <Compile Include="Context\CidadeContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Queries\Climas.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Climas.resx</DependentUpon>
+    </Compile>
     <Compile Include="Queries\Insert Default.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Insert Default.resx</DependentUpon>
     </Compile>
     <Compile Include="Repository\Cidades.cs" />
+    <Compile Include="Repository\Climas.cs" />
     <Compile Include="Repository\InsertDefault.cs" />
     <Compile Include="Repository\Previsao.cs" />
   </ItemGroup>
@@ -73,6 +79,8 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Queries\Climas\Cidades Mais Frias.sql" />
+    <Content Include="Queries\Climas\Cidades Mais Quentes.sql" />
     <Content Include="Queries\Insert Default\Preparar Banco.sql" />
     <Content Include="Queries\Insert Default\RJ\Petrópolis.sql" />
     <Content Include="Queries\Insert Default\RJ\Niterói.sql" />
@@ -85,6 +93,10 @@
     <Content Include="Queries\Insert Default\SP\São Paulo.sql" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Queries\Climas.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Climas.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="Queries\Insert Default.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Insert Default.Designer.cs</LastGenOutput>
