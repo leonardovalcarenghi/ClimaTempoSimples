@@ -36,7 +36,30 @@ namespace ClimaTempoSimples.Application
             return cities;
         }
 
-      
+        /// <summary>
+        /// Buscar uma cidade selecionada.
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+
+        public CityDTO GetCity(int id)
+        {
+            CityDTO city = _repository.GetCity(id);
+            return city;
+        }
+
+        /// <summary>
+        /// Buscar um estado selecionado.
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        public StateDTO GetState(int id)
+        {
+            StateDTO state = _repository.GetState(id);
+            return state;
+        }
+
+
 
     }
 }

@@ -121,6 +121,12 @@
   <data name="GetCities" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>geography\getcities.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
   </data>
+  <data name="GetCity" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>geography\getcity.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="GetState" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>geography\getstate.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
   <data name="GetStates" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>geography\getstates.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
   </data>

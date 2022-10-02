@@ -61,7 +61,11 @@ namespace ClimaTempoSimples.Infraestructure.Queries {
         }
         
         /// <summary>
-        ///   Consulta uma cadeia de caracteres localizada semelhante a .
+        ///   Consulta uma cadeia de caracteres localizada semelhante a SELECT
+        ///	[ID]		= [Id],
+        ///	[StateID]	= [EstadoId],
+        ///	[Name]		= [Nome]
+        ///FROM [Cidade].
         /// </summary>
         internal static string GetCities {
             get {
@@ -70,34 +74,39 @@ namespace ClimaTempoSimples.Infraestructure.Queries {
         }
         
         /// <summary>
-        ///   Consulta uma cadeia de caracteres localizada semelhante a 
-        ///
-        ////****************** RESETAR BANCO DE DADOS ******************/
-        ///IF (@Reset = 1) BEGIN
-        ///	DELETE [PrevisaoClima]
-        ///	DELETE [Cidade]
-        ///	DELETE [Estado]
-        ///END
-        ///
-        ///
-        ///
-        ////****************** ADICIONAR ESTADOS *****************/
-        ///
-        ///-- RS --
-        ///INSERT INTO [Estado] (Id, Nome, UF)
-        ///VALUES (1, &apos;Rio Grande do Sul&apos;, &apos;RS&apos;);
-        ///
-        ///-- SP --
-        ///INSERT INTO [Estado] (Id, Nome, UF)
-        ///VALUES (2, &apos;São Paulo&apos;, &apos;SP&apos;);
-        ///
-        ///-- RJ --
-        ///INSERT INTO [Estado] (Id, Nome, UF)
-        ///VALUES (3, &apos;Rio de Janeiro&apos;, &apos;RJ&apos;);
-        ///
-        ///
-        ///
-        ////***************** ADICIONAR  [o restante da cadeia de caracteres foi truncado]&quot;;.
+        ///   Consulta uma cadeia de caracteres localizada semelhante a SELECT
+        ///	[ID]		= [Id],
+        ///	[StateID]	= [EstadoId],
+        ///	[Name]		= [Nome]
+        ///FROM [Cidade]
+        ///WHERE [Id] = @CityID.
+        /// </summary>
+        internal static string GetCity {
+            get {
+                return ResourceManager.GetString("GetCity", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a SELECT 
+        ///	[ID]		= [Id],
+        ///	[Name]		= [Nome],
+        ///	[Initials]	= [UF]
+        ///FROM [Estado]
+        ///WHERE [Id] = @StateID.
+        /// </summary>
+        internal static string GetState {
+            get {
+                return ResourceManager.GetString("GetState", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a SELECT 
+        ///	[ID]		= [Id],
+        ///	[Name]		= [Nome],
+        ///	[Initials]	= [UF]
+        ///FROM [Estado].
         /// </summary>
         internal static string GetStates {
             get {

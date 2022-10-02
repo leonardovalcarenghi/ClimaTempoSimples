@@ -87,6 +87,8 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Queries\Geography\GetState.sql" />
+    <Content Include="Queries\Geography\GetCity.sql" />
     <Content Include="Queries\Geography\GetCities.sql" />
     <Content Include="Queries\Geography\GetStates.sql" />
     <Content Include="Queries\Insert Default\Preparar Banco.sql" />

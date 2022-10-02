@@ -31,12 +31,37 @@ namespace ClimaTempoSimples.API.Controllers
         }
 
         [HttpGet]
+        [Route("cities")]
+        public HttpResponseMessage GetCity(int id)
+        {
+            try
+            {
+                var result = _geography.GetCity(id);
+                return OK(result);
+            }
+            catch (Exception exception) { return Error(exception); }
+        }
+
+        [HttpGet]
         [Route("states")]
         public HttpResponseMessage GetStates()
         {
             try
             {
                 var result = _geography.GetStates();
+                return OK(result);
+            }
+            catch (Exception exception) { return Error(exception); }
+        }
+
+
+        [HttpGet]
+        [Route("states")]
+        public HttpResponseMessage GetState(int id)
+        {
+            try
+            {
+                var result = _geography.GetState(id);
                 return OK(result);
             }
             catch (Exception exception) { return Error(exception); }
