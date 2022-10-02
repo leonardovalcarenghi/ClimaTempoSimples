@@ -7,13 +7,15 @@
 
 
     <div class="col-12 col-lg-6">
-        <div class="jumbotron text-white" id="weather-hot">
+        <div class="jumbotron text-white" id="hottest-cities-jumbotron">
 
-            <div class="loading-overlay" id="loading-mais-quentes">
+            <div class="loading-overlay" id="hottest-cities-loading">
                 <p>Carregando...</p>
             </div>
-            <div class="error-overlay" id="error-mais-quentes" style="display: none;">
-                <p>Ocorreu um erro...</p>
+
+            <div class="error-overlay" id="hottest-cities-error" style="display: none;">
+                <p class="mb-0">Tivemos um problema ao tentar buscar a lista de cidades mais quentes...</p>
+                <small>Por favor, tente novamente mais tarde.</small>
             </div>
 
 
@@ -24,7 +26,7 @@
             </h3>
             <p class="lead">Confira a lista de cidades mais <i class="bi bi-sun-fill"></i> <strong>quentes</strong> no dia de <strong>hoje</strong>.</p>
 
-            <table class="table table-weather text-white" id="cidades-mais-quentes">
+            <table class="table table-weather text-white" id="hottest-cities-table">
                 <thead>
                     <tr>
                         <th scope="col"><i class="bi bi-geo-alt mr-2"></i>Cidade</th>
@@ -58,14 +60,15 @@
 
     <div class="col-12 col-lg-6">
 
-        <div class="jumbotron text-white" id="weather-cold">
+        <div class="jumbotron text-white" id="colder-cities-jumbotron">
 
-            <div class="loading-overlay" id="loading-mais-frias">
+            <div class="loading-overlay" id="colder-cities-loading">
                 <p>Carregando...</p>
             </div>
 
-            <div class="error-overlay" id="error-mais-frias" style="display: none;">
-                <p>Ocorreu um erro...</p>
+            <div class="error-overlay" id="colder-cities-error" style="display: none;">
+                <p class="mb-0">Tivemos um problema ao tentar buscar a lista de cidades mais frias...</p>
+                <small>Por favor, tente novamente mais tarde.</small>
             </div>
 
             <i class="bi bi-snow weather-icon"></i>
@@ -75,7 +78,7 @@
             </h3>
             <p class="lead">Confira a lista de cidades mais <i class="bi bi-snow2"></i> <strong>frias</strong> no dia de <strong>hoje</strong>.</p>
 
-            <table class="table table-weather text-white" id="cidades-mais-frias">
+            <table class="table table-weather text-white" id="colder-cities-table">
                 <thead>
                     <tr>
                         <th scope="col"><i class="bi bi-geo-alt mr-2"></i>Cidade</th>
@@ -121,7 +124,7 @@
                     <i class="bi bi-geo-alt-fill"></i>
                 </span>
             </div>
-            <select class="form-control" id="cidades-select">
+            <select class="form-control" id="cities-select" disabled>
             </select>
         </div>
 
@@ -173,4 +176,7 @@
 </div>
 
 
-@Scripts.Render("~/Content/js/clima.js")
+@Scripts.Render("~/assets/js/geography.js")
+@Scripts.Render("~/assets/js/weather.js")
+
+@*@Scripts.Render("~/Content/js/clima.js");*@

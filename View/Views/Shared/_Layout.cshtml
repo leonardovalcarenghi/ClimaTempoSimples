@@ -5,8 +5,10 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title - Clima Tempo Simples</title>
-    @Styles.Render("~/Content/css")
-    @Scripts.Render("~/bundles/modernizr")
+
+    @Styles.Render("~/assets/css/bootstrap.css")
+    @Styles.Render("~/assets/css/style.css")
+
 </head>
 <body>
 
@@ -34,9 +36,7 @@
                     </a>
                 </li>
             </ul>
-            <form class="form-inline my-2 my-lg-0">
-                <input class="form-control mr-sm-2" type="text" id="localhost-port" placeholder="Localhost port" value="44322">       
-            </form>
+           
         </div>
     </nav>
 
@@ -55,8 +55,13 @@
 
 
 
-    @Scripts.Render("~/bundles/jquery")
-    @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/assets/js/jquery.js")
+    @Scripts.Render("~/assets/js/bootstrap.js")
+    @Scripts.Render("~/assets/js/toaster.js")
+
+    @Scripts.Render("~/assets/js/request.js")
+    @Scripts.Render("~/assets/js/main.js")
+
     @RenderSection("scripts", required: false)
 </body>
 </html>

@@ -1,5 +1,14 @@
 ﻿@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css");
 
+#toaster {
+    position: fixed;
+    right: 30px;
+    top: 30px;
+    width: 500px;
+    height: auto;
+    z-index: 9;
+}
+
 #main {
     padding: 30px;
 }
@@ -39,6 +48,7 @@
     justify-content: center;
     align-items: center;
     z-index: 2;
+    cursor: progress;
 }
 
 .error-overlay {
@@ -59,12 +69,12 @@
     z-index: 2;
 }
 
-#weather-hot {
+#hottest-cities-jumbotron {
     background: rgb(220,53,69);
     background: linear-gradient(128deg, rgba(220,53,69,1) 21%, rgba(220,53,69,1) 47%, rgba(220,53,103,0.9374124649859944) 100%);
 }
 
-#weather-cold {
+#colder-cities-jumbotron {
     background: rgb(0,123,255);
     background: linear-gradient(128deg, rgba(0,123,255,1) 21%, rgba(0,123,255,1) 47%, rgba(0,191,255,0.758140756302521) 100%);
 }
