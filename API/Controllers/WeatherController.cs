@@ -17,6 +17,7 @@ namespace ClimaTempoSimples.API.Controllers
         }
 
         [HttpGet]
+        [Route("~/weather")]
         public HttpResponseMessage Get(int city)
         {
             try
