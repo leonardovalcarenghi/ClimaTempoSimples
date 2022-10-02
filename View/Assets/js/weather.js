@@ -45,13 +45,14 @@ async function GetWeather(id) {
         const response = await Request('GET', `${API}/weather?city=${id}`);
         const list = Array.isArray(response) ? response : [];
         RenderWeather(list);
-        WeatherTitle.querySelector('span').innerHTML = city.Name;
+        WeatherTitle.querySelector('span').innerHTML = `${city.Name}/${state.Initials}`;
+        $(WeatherTitle).show();
     }
     catch (error) {
         console.error('ERRO AO BUSCAR PREVISÃO DO TEMPO PARA A CIDADE SELECIONADA', error);
-        ErrorNotification(error.Message || `Não foi possível buscar a previsão do tempo para a cidade de <strong>${city.Name}/${state.Initials}`, 'Erro ao Buscar Previsão do Tempo');
         WeatherContainer.innerHTML = `<div class="col-12"> <p class="text-center mb-0">Tivemos um problema ao tentar buscar a previsão do tempo para a cidade de  <strong>${city.Name}/${state.Initials}</strong>.</p> <small class="text-center d-block">Por favor, tente novamente mais tarde.</small> </div>`;
         $(WeatherTitle).hide();
+        ErrorNotification(error.Message || `Não foi possível buscar a previsão do tempo para a cidade de <strong>${city.Name}/${state.Initials}`, 'Erro ao Buscar Previsão do Tempo');
     }
 }
 
@@ -70,9 +71,9 @@ async function GetHottestCities() {
     }
     catch (error) {
         console.error('ERRO AO BUSCAR LISTA DE CIDADES MAIS QUENTES DO DIA', error);
-        ErrorNotification(error.Message || 'Não foi possível buscar a lista de cidades mais quentes.', 'Erro ao Buscar Lista de Cidades Quentes');
         $(HottestCitiesLoading).hide();
         $(HottestCitiesError).show();
+        ErrorNotification(error.Message || 'Não foi possível buscar a lista de cidades mais quentes.', 'Erro ao Buscar Lista de Cidades Quentes');
     }
 }
 
@@ -89,9 +90,9 @@ async function GetColderCities() {
     }
     catch (error) {
         console.error('ERRO AO BUSCAR LISTA DE CIDADES MAIS FRIAS DO DIA', error);
-        ErrorNotification(error.Message || 'Não foi possível buscar a lista de cidades mais frias.', 'Erro ao Buscar Lista de Cidades Frias');
         $(ColderCitiesLoading).hide();
         $(ColderCitiesError).show();
+        ErrorNotification(error.Message || 'Não foi possível buscar a lista de cidades mais frias.', 'Erro ao Buscar Lista de Cidades Frias');
     }
 }
 
