@@ -118,10 +118,13 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="Cidades_Mais_Frias" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>climas\cidades mais frias.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  <data name="Get" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>weather\get.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
   </data>
-  <data name="Cidades_Mais_Quentes" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>climas\cidades mais quentes.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  <data name="GetColderCities" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>weather\getcoldercities.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="GetHottestCities" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>weather\gethottestcities.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
   </data>
 </root>

@@ -53,30 +53,34 @@
   <ItemGroup>
     <Compile Include="Context\CidadeContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Queries\Climas.Designer.cs">
+    <Compile Include="Queries\Geography.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>Climas.resx</DependentUpon>
+      <DependentUpon>Geography.resx</DependentUpon>
     </Compile>
     <Compile Include="Queries\Insert Default.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Insert Default.resx</DependentUpon>
     </Compile>
-    <Compile Include="Queries\Previsao.Designer.cs">
+    <Compile Include="Queries\Weather.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>Previsao.resx</DependentUpon>
+      <DependentUpon>Weather.resx</DependentUpon>
     </Compile>
     <Compile Include="Repository\Cidades.cs" />
-    <Compile Include="Repository\Climas.cs" />
+    <Compile Include="Repository\Geography.cs" />
     <Compile Include="Repository\InsertDefault.cs" />
-    <Compile Include="Repository\Previsao.cs" />
+    <Compile Include="Repository\Weather.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DTO\DTO.csproj">
       <Project>{0c107b18-49cb-4c22-82ca-294599466462}</Project>
       <Name>DTO</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Utils\Utils.csproj">
+      <Project>{4A6EB076-5312-46E9-8847-82D7F2DC4B15}</Project>
+      <Name>Utils</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
@@ -84,8 +88,8 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Queries\Climas\Cidades Mais Frias.sql" />
-    <Content Include="Queries\Climas\Cidades Mais Quentes.sql" />
+    <Content Include="Queries\Geography\GetCities.sql" />
+    <Content Include="Queries\Geography\GetStates.sql" />
     <Content Include="Queries\Insert Default\Preparar Banco.sql" />
     <Content Include="Queries\Insert Default\RJ\Petrópolis.sql" />
     <Content Include="Queries\Insert Default\RJ\Niterói.sql" />
@@ -96,20 +100,22 @@
     <Content Include="Queries\Insert Default\SP\Guarulhos.sql" />
     <Content Include="Queries\Insert Default\SP\São Bernardo do Campo.sql" />
     <Content Include="Queries\Insert Default\SP\São Paulo.sql" />
-    <Content Include="Queries\Previsao\Obter.sql" />
+    <Content Include="Queries\Weather\GetHottestCities.sql" />
+    <Content Include="Queries\Weather\GetColderCities.sql" />
+    <Content Include="Queries\Weather\Get.sql" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Queries\Climas.resx">
+    <EmbeddedResource Include="Queries\Geography.resx">
       <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Climas.Designer.cs</LastGenOutput>
+      <LastGenOutput>Geography.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Queries\Insert Default.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Insert Default.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="Queries\Previsao.resx">
+    <EmbeddedResource Include="Queries\Weather.resx">
       <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Previsao.Designer.cs</LastGenOutput>
+      <LastGenOutput>Weather.Designer.cs</LastGenOutput>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

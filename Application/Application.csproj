@@ -42,11 +42,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Cidades.cs" />
-    <Compile Include="Climas.cs" />
     <Compile Include="Estados.cs" />
+    <Compile Include="Geography.cs" />
     <Compile Include="InsertDefault.cs" />
-    <Compile Include="Previsao.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Weather.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DTO\DTO.csproj">

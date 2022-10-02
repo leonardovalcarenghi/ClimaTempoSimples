@@ -22,14 +22,14 @@ namespace ClimaTempoSimples.Infraestructure.Queries {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "17.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    internal class Climas {
+    internal class Weather {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
         private static global::System.Globalization.CultureInfo resourceCulture;
         
         [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
-        internal Climas() {
+        internal Weather() {
         }
         
         /// <summary>
@@ -39,7 +39,7 @@ namespace ClimaTempoSimples.Infraestructure.Queries {
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("ClimaTempoSimples.Infraestructure.Queries.Climas", typeof(Climas).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("ClimaTempoSimples.Infraestructure.Queries.Weather", typeof(Weather).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -63,18 +63,27 @@ namespace ClimaTempoSimples.Infraestructure.Queries {
         /// <summary>
         ///   Consulta uma cadeia de caracteres localizada semelhante a .
         /// </summary>
-        internal static string Cidades_Mais_Frias {
+        internal static string Get {
             get {
-                return ResourceManager.GetString("Cidades_Mais_Frias", resourceCulture);
+                return ResourceManager.GetString("Get", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Consulta uma cadeia de caracteres localizada semelhante a .
         /// </summary>
-        internal static string Cidades_Mais_Quentes {
+        internal static string GetColderCities {
             get {
-                return ResourceManager.GetString("Cidades_Mais_Quentes", resourceCulture);
+                return ResourceManager.GetString("GetColderCities", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a .
+        /// </summary>
+        internal static string GetHottestCities {
+            get {
+                return ResourceManager.GetString("GetHottestCities", resourceCulture);
             }
         }
     }

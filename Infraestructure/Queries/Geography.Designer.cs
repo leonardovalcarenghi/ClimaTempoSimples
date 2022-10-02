@@ -22,14 +22,14 @@ namespace ClimaTempoSimples.Infraestructure.Queries {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "17.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    internal class Previsao {
+    internal class Geography {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
         private static global::System.Globalization.CultureInfo resourceCulture;
         
         [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
-        internal Previsao() {
+        internal Geography() {
         }
         
         /// <summary>
@@ -39,7 +39,7 @@ namespace ClimaTempoSimples.Infraestructure.Queries {
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("ClimaTempoSimples.Infraestructure.Queries.Previsao", typeof(Previsao).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("ClimaTempoSimples.Infraestructure.Queries.Geography", typeof(Geography).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -63,9 +63,45 @@ namespace ClimaTempoSimples.Infraestructure.Queries {
         /// <summary>
         ///   Consulta uma cadeia de caracteres localizada semelhante a .
         /// </summary>
-        internal static string Obter {
+        internal static string GetCities {
             get {
-                return ResourceManager.GetString("Obter", resourceCulture);
+                return ResourceManager.GetString("GetCities", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a 
+        ///
+        ////****************** RESETAR BANCO DE DADOS ******************/
+        ///IF (@Reset = 1) BEGIN
+        ///	DELETE [PrevisaoClima]
+        ///	DELETE [Cidade]
+        ///	DELETE [Estado]
+        ///END
+        ///
+        ///
+        ///
+        ////****************** ADICIONAR ESTADOS *****************/
+        ///
+        ///-- RS --
+        ///INSERT INTO [Estado] (Id, Nome, UF)
+        ///VALUES (1, &apos;Rio Grande do Sul&apos;, &apos;RS&apos;);
+        ///
+        ///-- SP --
+        ///INSERT INTO [Estado] (Id, Nome, UF)
+        ///VALUES (2, &apos;São Paulo&apos;, &apos;SP&apos;);
+        ///
+        ///-- RJ --
+        ///INSERT INTO [Estado] (Id, Nome, UF)
+        ///VALUES (3, &apos;Rio de Janeiro&apos;, &apos;RJ&apos;);
+        ///
+        ///
+        ///
+        ////***************** ADICIONAR  [o restante da cadeia de caracteres foi truncado]&quot;;.
+        /// </summary>
+        internal static string GetStates {
+            get {
+                return ResourceManager.GetString("GetStates", resourceCulture);
             }
         }
     }
