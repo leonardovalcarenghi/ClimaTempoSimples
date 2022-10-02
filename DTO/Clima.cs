@@ -12,6 +12,7 @@ namespace ClimaTempoSimples.DTO
         public string Cidade { get; set; }
         public string UF { get; set; }
         public DateTime DataPrevisao { get; set; }
+        public string DiaDaSemana { get; set; }
         public string Clima { get; set; }
         public double TemperaturaMinima { get; set; }
         public double TemperaturaMaxima { get; set; }

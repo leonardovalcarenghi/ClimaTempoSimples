@@ -1,6 +1,7 @@
 ﻿using ClimaTempoSimples.DTO;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -16,9 +17,16 @@ namespace ClimaTempoSimples.Application
         }
 
 
-        public List<ClimaDTO> ObterPrevisao(int cidade)
+        public List<ClimaDTO> Obter(int cidade)
         {
-            List<ClimaDTO> list = _repository.ObterPrevisao(cidade);
+            List<ClimaDTO> list = _repository.Obter(cidade);
+            if (list is null) { return null; }
+            foreach (ClimaDTO clima in list)
+            {
+                CultureInfo culture = new CultureInfo("pt-BR");
+                string dayOfWeek = culture.DateTimeFormat.GetDayName(clima.DataPrevisao.DayOfWeek);
+                clima.DiaDaSemana = culture.TextInfo.ToTitleCase(dayOfWeek);
+            }
             return list;
         }
     }

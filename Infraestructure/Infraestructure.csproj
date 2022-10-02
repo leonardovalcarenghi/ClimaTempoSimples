@@ -63,6 +63,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Insert Default.resx</DependentUpon>
     </Compile>
+    <Compile Include="Queries\Previsao.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Previsao.resx</DependentUpon>
+    </Compile>
     <Compile Include="Repository\Cidades.cs" />
     <Compile Include="Repository\Climas.cs" />
     <Compile Include="Repository\InsertDefault.cs" />
@@ -91,6 +96,7 @@
     <Content Include="Queries\Insert Default\SP\Guarulhos.sql" />
     <Content Include="Queries\Insert Default\SP\São Bernardo do Campo.sql" />
     <Content Include="Queries\Insert Default\SP\São Paulo.sql" />
+    <Content Include="Queries\Previsao\Obter.sql" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Queries\Climas.resx">
@@ -100,6 +106,10 @@
     <EmbeddedResource Include="Queries\Insert Default.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Insert Default.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Queries\Previsao.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Previsao.Designer.cs</LastGenOutput>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

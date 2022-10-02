@@ -23,9 +23,9 @@ namespace API.Controllers
 
         [HttpGet]
         [Route("previsao")]
-        public HttpResponseMessage ObterPrevisao(int cidade)
+        public HttpResponseMessage Obter(int cidade)
         {
-            var result = _previsao.ObterPrevisao(cidade);
+            var result = _previsao.Obter(cidade);
             return Request.CreateResponse(HttpStatusCode.OK, new
             {
                 Error = false,
