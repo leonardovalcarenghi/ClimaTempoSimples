@@ -24,8 +24,11 @@ namespace ClimaTempoSimples.Application
             foreach (ClimaDTO clima in list)
             {
                 CultureInfo culture = new CultureInfo("pt-BR");
+                TextInfo textInfo = culture.TextInfo;
                 string dayOfWeek = culture.DateTimeFormat.GetDayName(clima.DataPrevisao.DayOfWeek);
-                clima.DiaDaSemana = culture.TextInfo.ToTitleCase(dayOfWeek);
+                clima.DiaDaSemana = textInfo.ToTitleCase(dayOfWeek);
+                if (clima.DataPrevisao == DateTime.Today) { clima.DiaDaSemana = "Hoje"; }
+                if (clima.DataPrevisao == DateTime.Today.AddDays(1)) { clima.DiaDaSemana = "Amanhã"; }
             }
             return list;
         }
