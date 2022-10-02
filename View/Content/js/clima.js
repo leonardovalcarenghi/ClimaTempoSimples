@@ -11,7 +11,7 @@ var CidadesMaisFrias = [];
 
 // Componentes:
 var ListaDeCidades = document.getElementById('cidades-select');
-var CardWeatherComponent = document.getElementById('card-weather-component');
+var Componente_Clima = document.getElementById('card-weather-component');
 
 // Cidade
 var tituloPrevisao = document.getElementById('titulo-previsao');
@@ -50,7 +50,7 @@ async function ObterEstados() {
 
     try {
         const response = await Request('GET', `https://localhost:${Port}/estados`);
-        Estados = Array.isArray(response.Result) ? response.Result : [];
+        Estados = Array.isArray(response) ? response : [];
     }
     catch (error) {
         console.error('ERRO AO BUSCAR ESTADOS', error);
@@ -64,7 +64,7 @@ async function ObterCidades() {
 
     try {
         const response = await Request('GET', `https://localhost:${Port}/cidades`);
-        Cidades = Array.isArray(response.Result) ? response.Result : [];
+        Cidades = Array.isArray(response) ? response : [];
         await RenderizarListaDeCidades();
     }
     catch (error) {
@@ -115,7 +115,7 @@ async function ObterCidadesMaisQuentes() {
     try {
         Loading_MaisQuentes.style.display = 'flex';
         const response = await Request('GET', `https://localhost:${Port}/climas/mais-quentes`);
-        CidadesMaisQuentes = Array.isArray(response.Result) ? response.Result : [];
+        CidadesMaisQuentes = Array.isArray(response) ? response : [];
         await RenderizarCidadesExtremas(CidadesMaisQuentes, Tabela_CidadesMaisQuentes);
         Loading_MaisQuentes.style.display = 'none';
     }
@@ -132,7 +132,7 @@ async function ObterCidadesMaisFrias() {
     try {
         Loading_MaisFrias.style.display = 'flex';
         const response = await Request('GET', `https://localhost:${Port}/climas/mais-frias`);
-        CidadesMaisFrias = Array.isArray(response.Result) ? response.Result : [];
+        CidadesMaisFrias = Array.isArray(response) ? response : [];
         await RenderizarCidadesExtremas(CidadesMaisFrias, Tabela_CidadesMaisFrias);
         Loading_MaisFrias.style.display = 'none';
     }
@@ -184,8 +184,14 @@ async function ObterPrevisao(cidadeId) {
 
     try {
         const response = await Request('GET', `https://localhost:${Port}/previsao?cidade=${cidadeId}`);
-        const list = Array.isArray(response.Result) ? response.Result : [];
+        const list = Array.isArray(response) ? response : [];
         RenderizarPrevisao(list);
+
+        const cidade = Cidades.find(c => c.Id == cidadeId);
+        cidadeNome.innerHTML = cidade.Nome;
+        tituloPrevisao.style.display = 'block';
+
+
     }
     catch (error) {
         console.error('ERRO AO BUSCAR PREVISAO PARA A CIDADE SELECIONADA', error);
@@ -195,9 +201,35 @@ async function ObterPrevisao(cidadeId) {
 
 
 async function RenderizarPrevisao(list = []) {
-    return new Promise(async (resolve, reject) => {
 
-    });
+
+    PainelDePrevisoes.innerHTML = '';
+
+    list.forEach(clima => {
+
+        const ensolaradoIcon = 'bi bi-brightness-high-fill';
+        const nubladoIcon = 'bi bi-clouds-fill';
+        const chuvosoIcon = 'bi bi-cloud-rain-heavy-fill';
+        const instavelIcon = 'bi bi-cloud-sleet-fill';
+        const tempestuosoIcon = 'bi bi-cloud-lightning-rain-fill';
+
+        const climaIcon = clima.Clima == 'Ensolarado' ? ensolaradoIcon :
+            clima.Clima == 'Nublado' ? nubladoIcon :
+                clima.Clima == 'Chuvoso' ? chuvosoIcon :
+                    clima.Clima == 'Instavel' ? instavelIcon : tempestuosoIcon
+
+        const component = Componente_Clima.cloneNode(true);
+        component.querySelector('[name="day"]').innerHTML = clima.DiaDaSemana;
+        component.querySelector('[name="icon"]').setAttribute('class', climaIcon);
+        component.querySelector('[name="clima"]').innerHTML = clima.Clima;
+        component.querySelector('[name="min"]').innerHTML = `${clima.TemperaturaMinima}ºC`;
+        component.querySelector('[name="max"]').innerHTML = `${clima.TemperaturaMaxima}ºC`;
+
+        PainelDePrevisoes.appendChild(component);
+
+    })
+
+
 }
 
 
@@ -219,7 +251,11 @@ async function Request(method = 'GET', url = '', data = null) {
             const data = xhr.responseText;
             if (xhr.status === 200) {
                 const res = JSON.parse(data);
-                resolve(res);
+                if (res.Result) {
+                    resolve(res.Result);
+                } else {
+                    resolve(res);
+                }
             } else {
                 reject();
             }
