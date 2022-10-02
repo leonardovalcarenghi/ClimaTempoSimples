@@ -128,7 +128,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Assets\css\bootstrap.css" />
+    <Content Include="Assets\css\select2.css" />
     <Content Include="Assets\js\main.js" />
+    <Content Include="Assets\js\select2.js" />
     <Content Include="Assets\js\toaster.js" />
     <Content Include="Assets\js\clima.js" />
     <Content Include="Assets\js\geography.js" />

@@ -110,6 +110,17 @@ function RenderCities() {
 
     CitiesSelect.removeAttribute('disabled');
 
+
+    $(CitiesSelect).select2({
+        placeholder: 'Selecionar Cidade...',
+        theme: "bootstrap4",
+        language: {
+            noResults: function () {
+                return "Nenhum resultado encontrado...";
+            }
+        },
+    });
+
 }
 
 

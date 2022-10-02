@@ -7,12 +7,13 @@
     <title>@ViewBag.Title - Clima Tempo Simples</title>
 
     @Styles.Render("~/assets/css/bootstrap.css")
+    @Styles.Render("~/assets/css/select2.css")
     @Styles.Render("~/assets/css/style.css")
 
 </head>
 <body>
 
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
         <span class="navbar-brand mb-0 h1">
             @Html.ActionLink("Clima Tempo Simples", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
         </span>
@@ -58,6 +59,7 @@
     @Scripts.Render("~/assets/js/jquery.js")
     @Scripts.Render("~/assets/js/bootstrap.js")
     @Scripts.Render("~/assets/js/toaster.js")
+    @Scripts.Render("~/assets/js/select2.js")
 
     @Scripts.Render("~/assets/js/request.js")
     @Scripts.Render("~/assets/js/main.js")

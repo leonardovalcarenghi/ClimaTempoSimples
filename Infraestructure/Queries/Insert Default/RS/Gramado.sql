@@ -16,7 +16,7 @@ DECLARE @Day8 DATETIME = DATEADD(DAY, 7, @Today);
 
 -- Dia 1:
 INSERT INTO PrevisaoClima (CidadeId, DataPrevisao, Clima, TemperaturaMinima, TemperaturaMaxima)
-VALUES (@CityID, @Day1, 'Chuvoso', 11, 20);
+VALUES (@CityID, @Day1, 'Ensolarado', 11, 20);
 
 ---- Dia 2:
 INSERT INTO PrevisaoClima (CidadeId, DataPrevisao, Clima, TemperaturaMinima, TemperaturaMaxima)
