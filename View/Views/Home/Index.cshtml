@@ -57,9 +57,7 @@
         </div>
     </div>
 
-
     <div class="col-12 col-lg-6">
-
         <div class="jumbotron text-white" id="colder-cities-jumbotron">
 
             <div class="loading-overlay" id="colder-cities-loading">
@@ -112,15 +110,15 @@
 
 <div class="row mb-3">
     <div class="col-12 col-lg-8">
-        <h2 id="titulo-previsao" style="display: none;">
-            Clima para os próximos sete dias na cidade de <span id="cidade-nome">city</span>
+        <h2 id="weather-title" style="display: none;">
+            Clima para os próximos sete dias na cidade de <span>city</span>
         </h2>
     </div>
     <div class="col-12 col-lg-4">
 
         <div class="input-group mb-3">
             <div class="input-group-prepend">
-                <span class="input-group-text" id="basic-addon1">
+                <span class="input-group-text">
                     <i class="bi bi-geo-alt-fill"></i>
                 </span>
             </div>
@@ -133,13 +131,11 @@
     </div>
 </div>
 
-<div class="row" id="climates-container">
-
+<div class="row" id="weather-container">
 
     <div class="col-12">
         <p class="text-center">Selecione uma cidade no seletor acima para exibir a previsão para os próximos 7 dias.</p>
     </div>
-
 
 </div>
 
@@ -148,7 +144,7 @@
 <div style="display: none">
 
 
-    <div class="col-6 col-md-4 col-xl-2 mb-3" id="card-weather-component">
+    <div class="col-6 col-md-4 col-xl-2 mb-3" id="weather-component">
 
         <div class="card card-weather">
             <div class="card-header">
@@ -157,7 +153,7 @@
             <div class="card-body">
                 <h4>
                     <i class="bi bi-cloud-drizzle-fill" name="icon"></i>
-                    <span name="clima">Clima</span>
+                    <span name="description">Clima</span>
                 </h4>
                 <div class="d-flex justify-content-between mb-0">
                     <span>Mínima</span>

@@ -16,6 +16,10 @@ var ColderCitiesLoading = document.getElementById('colder-cities-loading');
 var ColderCitiesError = document.getElementById('colder-cities-error');
 var ColderCitiesTable = document.getElementById('colder-cities-table');
 
+var WeatherTitle = document.getElementById('weather-title');
+var WeatherContainer = document.getElementById('weather-container');
+var WeatherComponent = document.getElementById('weather-component');
+
 window.addEventListener('DOMContentLoaded', async (e) => {
 
     States = await GetStates();
@@ -27,22 +31,31 @@ window.addEventListener('DOMContentLoaded', async (e) => {
 
 });
 
-
-// Renderizar Cidades //
-function RenderCities() {
-
-    CitiesSelect.innerHTML = '';
-    $(CitiesSelect).append('<option value="-1" selected disabled>Selecionar Cidade...</option>');
-
-    States.forEach(state => {
-        $(CitiesSelect).append(`<optgroup label="${state.Name}">${state.Name}</optgroup>`);
-        const cities = Cities.filter(city => city.StateID == state.ID);
-        cities.forEach(city => { $(CitiesSelect).append(`<option value="${city.ID}">${city.Name}</option>`); });
-    });
-
-    CitiesSelect.removeAttribute('disabled');
-
+CitiesSelect.onchange = function () {
+    const id = CitiesSelect.value;
+    GetWeather(id);
 }
+
+
+// Buscar Previsão do Tempo para uma Cidade //
+async function GetWeather(id) {
+    const city = Cities.find(c => c.ID == id);
+    const state = States.find(s => s.ID == city.StateID);
+    try {
+        const response = await Request('GET', `${API}/weather?city=${id}`);
+        const list = Array.isArray(response) ? response : [];
+        RenderWeather(list);
+        WeatherTitle.querySelector('span').innerHTML = city.Name;
+    }
+    catch (error) {
+        console.error('ERRO AO BUSCAR PREVISÃO DO TEMPO PARA A CIDADE SELECIONADA', error);
+        ErrorNotification(error.Message || `Não foi possível buscar a previsão do tempo para a cidade de <strong>${city.Name}/${state.Initials}`, 'Erro ao Buscar Previsão do Tempo');
+        WeatherContainer.innerHTML = `<div class="col-12"> <p class="text-center mb-0">Tivemos um problema ao tentar buscar a previsão do tempo para a cidade de  <strong>${city.Name}/${state.Initials}</strong>.</p> <small class="text-center d-block">Por favor, tente novamente mais tarde.</small> </div>`;
+        $(WeatherTitle).hide();
+    }
+}
+
+
 
 // Buscar Cidades Mais Quentes //
 async function GetHottestCities() {
@@ -80,6 +93,22 @@ async function GetColderCities() {
         $(ColderCitiesLoading).hide();
         $(ColderCitiesError).show();
     }
+}
+
+// Renderizar Cidades //
+function RenderCities() {
+
+    CitiesSelect.innerHTML = '';
+    $(CitiesSelect).append('<option value="-1" selected disabled>Selecionar Cidade...</option>');
+
+    States.forEach(state => {
+        $(CitiesSelect).append(`<optgroup label="${state.Name}">${state.Name}</optgroup>`);
+        const cities = Cities.filter(city => city.StateID == state.ID);
+        cities.forEach(city => { $(CitiesSelect).append(`<option value="${city.ID}">${city.Name}</option>`); });
+    });
+
+    CitiesSelect.removeAttribute('disabled');
+
 }
 
 
@@ -146,5 +175,25 @@ function RenderColderCities() {
 
     $(ColderCitiesLoading).hide();
     $(ColderCitiesError).hide();
+
+}
+
+
+function RenderWeather(list = []) {
+
+    WeatherContainer.innerHTML = '';
+
+    list.forEach(weather => {
+
+        const component = WeatherComponent.cloneNode(true);
+        component.querySelector('[name="day"]').innerHTML = weather.DayOfWeek;
+        component.querySelector('[name="icon"]').setAttribute('class', weather.Icon);
+        component.querySelector('[name="description"]').innerHTML = weather.Description;
+        component.querySelector('[name="min"]').innerHTML = `${weather.Min}ºC`;
+        component.querySelector('[name="max"]').innerHTML = `${weather.Max}ºC`;
+
+        WeatherContainer.appendChild(component);
+
+    });
 
 }
