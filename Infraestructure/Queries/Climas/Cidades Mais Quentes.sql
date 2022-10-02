@@ -17,4 +17,4 @@ SELECT
 	[UF] = ( SELECT [UF] FROM [Estado] WHERE Id = ( SELECT [EstadoId] FROM [Cidade] WHERE Id = [MQ].CidadeId )),
 	[Cidade] = ( SELECT [Nome] FROM [Cidade] WHERE Id = [MQ].CidadeId )
 	FROM @MaisQuentes AS [MQ]
-ORDER BY TemperaturaMaxima DESC
+ORDER BY TemperaturaMaxima DESC, [Cidade] ASC
