@@ -10,6 +10,6 @@ namespace ClimaTempoSimples.Infraestructure.Context
 {
     public class CidadeContext : DbContext
     {
-        public DbSet<CidadeDTO> Cidades { get; set; }
+        public DbSet<object> Cidades { get; set; }
     }
 }
