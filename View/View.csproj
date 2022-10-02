@@ -132,7 +132,6 @@
     <Content Include="Assets\js\main.js" />
     <Content Include="Assets\js\select2.js" />
     <Content Include="Assets\js\toaster.js" />
-    <Content Include="Assets\js\clima.js" />
     <Content Include="Assets\js\geography.js" />
     <Content Include="Assets\js\request.js" />
     <Content Include="Assets\js\weather.js" />
