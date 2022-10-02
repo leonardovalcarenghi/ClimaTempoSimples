@@ -41,9 +41,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Cidade.cs" />
-    <Compile Include="Clima.cs" />
-    <Compile Include="Estado.cs" />
     <Compile Include="Geography\City.cs" />
     <Compile Include="Geography\State.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

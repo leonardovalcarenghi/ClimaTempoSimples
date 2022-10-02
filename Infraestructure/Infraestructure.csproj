@@ -68,7 +68,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Weather.resx</DependentUpon>
     </Compile>
-    <Compile Include="Repository\Cidades.cs" />
     <Compile Include="Repository\Geography.cs" />
     <Compile Include="Repository\InsertDefault.cs" />
     <Compile Include="Repository\Weather.cs" />

@@ -149,9 +149,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\WebApiConfig.cs" />
-    <Compile Include="Controllers\CidadesController.cs" />
     <Compile Include="Controllers\DefaultController.cs" />
-    <Compile Include="Controllers\EstadosController.cs" />
     <Compile Include="Controllers\GeographyController.cs" />
     <Compile Include="Controllers\WeatherController.cs" />
     <Compile Include="Global.asax.cs">
