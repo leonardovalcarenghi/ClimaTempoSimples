@@ -52,25 +52,29 @@ Ambos indicam 3 cidades com temperaturas mais elevadas e mais baixas respectivam
 
 Ao lado esquerdo do nome da cidade, vai aparecer um ícone, indicando como vai estar o tempo no dia de hoje para aquela cidade.
 
+![Blocos de Climas](/readme-images/blocos-de-climas-com-title.png)
+
 <br/>
 <br/>
 
 ## Previsão dos 7 Dias
-Abaixo do bloco de **Cidades mais frias hoje**, você vai encontrar um **seletor** ( _select_ ) para **selecionar** uma cidade para o sistema buscar a previsão completa para os próximos 7 dias.
+Abaixo do bloco de **Cidades mais frias hoje**, você vai encontrar um **seletor** ( _select_ ) para **selecionar** uma cidade.
 
 ![Blocos de Climas](/readme-images/selecionar-cidade.png)
 
-Selecionando uma cidade, o sitema vai buscar a previsão completa e renderizar logo abaixo.
+Selecionando uma cidade, o sistema vai buscar a previsão completa e renderizar logo abaixo.
 
 ![Blocos de Climas](/readme-images/previsao-gramado.png)
 
 **Dias da Semana**
 - A previsão do tempo para o dia de hoje, vai aparecer com a nomenclatura **Hoje**.
 - A previsão do tempo para o dia de amanhã, vai aparecer com a nomenclatura **Amanhã**.
-- O restantes dos dias vaia aparecer com o nome do dia da semana normalmente.
+- O restantes dos dias vai aparecer com o nome do dia da semana normalmente.
 
 **Icones**
 - Cada tipo de tempo é representado por um ícone.
+- Os ícones utilizados são do Bootstrap Icons.
+- A classe dos ícones vem do back-end.
 
 
 ---
