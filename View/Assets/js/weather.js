@@ -193,11 +193,16 @@ function RenderColderCities() {
 
 function RenderWeather(list = []) {
 
+
     WeatherContainer.innerHTML = '';
 
-    list.forEach(weather => {
+    list.forEach((weather, index) => {
 
         const component = WeatherComponent.cloneNode(true);
+        component.removeAttribute('id');
+
+        if (index == 0) { component.setAttribute('class', 'col-12 mb-3'); }
+
         component.querySelector('[name="day"]').innerHTML = weather.DayOfWeek;
         component.querySelector('[name="icon"]').setAttribute('class', weather.Icon);
         component.querySelector('[name="description"]').innerHTML = weather.Description;
