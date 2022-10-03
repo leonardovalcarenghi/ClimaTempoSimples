@@ -17,14 +17,14 @@ namespace ClimaTempoSimples.Application
 
 
 
-            Infraestructure.Repository.Geography geography = new Infraestructure.Repository.Geography();
-            List<CityDTO> cities = geography.GetCities();
-            foreach (CityDTO city in cities)
-            {
+            //Infraestructure.Repository.Geography geography = new Infraestructure.Repository.Geography();
+            //List<CityDTO> cities = geography.GetCities();
+            //foreach (CityDTO city in cities)
+            //{
 
-                WeatherDTO weather = GenerateRandomWeather();
+            //    WeatherDTO weather = GenerateRandomWeather();
 
-            }
+            //}
 
         }
 
