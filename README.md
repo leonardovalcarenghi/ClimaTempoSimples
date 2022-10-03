@@ -14,13 +14,14 @@ AUVO - Aplicação de Clima Tempo Simples
 
 ## Configurar e Compilar
 1. Abra o projeto no Visual Studio.
-2. Instale as dependencias do NuGet (se necessárias).
+2. Instale as dependências do NuGet (se necessárias).
 3. Configure a solução para inicializar os projetos de **API** e **View**.
 4. Compile!
 
 ## Informações
 - A **ConnectionString** está apontando para o banco _localhost_.
 - Toda vez que a aplicação é rodada, as informações do banco são removidas e populadas novamente.
+  - Isso pode ser desligado no **Startup** do projeto de **API**.
 
 
 
@@ -39,6 +40,8 @@ Se ao rodar o projeto a porta do _localhost_ for diferente de **44322**, você p
 ## Cidades Mais Quentes/Frias
 Ao abrir o sistema, você vai se deparar com dois blocos grandes no topo da página.
 
+![Blocos de Climas](/readme-images/blocos-de-climas.png)
+
 O da **esquerda** é o bloco de **Cidades mais quentes hoje** e o da **direita** é o bloco de **Cidades mais frias hoje**.
 
 Ambos indicam 3 cidades com temperaturas mais elevadas e mais baixas respectivamente.
@@ -55,7 +58,11 @@ Ao lado esquerdo do nome da cidade, vai aparecer um ícone, indicando como vai e
 ## Previsão dos 7 Dias
 Abaixo do bloco de **Cidades mais frias hoje**, você vai encontrar um **seletor** ( _select_ ) para **selecionar** uma cidade para o sistema buscar a previsão completa para os próximos 7 dias.
 
+![Blocos de Climas](/readme-images/selecionar-cidade.png)
+
 Selecionando uma cidade, o sitema vai buscar a previsão completa e renderizar logo abaixo.
+
+![Blocos de Climas](/readme-images/previsao-gramado.png)
 
 **Dias da Semana**
 - A previsão do tempo para o dia de hoje, vai aparecer com a nomenclatura **Hoje**.
