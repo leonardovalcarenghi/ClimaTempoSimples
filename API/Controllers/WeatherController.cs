@@ -13,7 +13,7 @@ namespace ClimaTempoSimples.API.Controllers
         private readonly Application.Weather _weather;
         public WeatherController()
         {
-            _weather = new Application.Weather();   
+            _weather = new Application.Weather();
         }
 
         [HttpGet]
